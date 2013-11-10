@@ -122,6 +122,15 @@ if(isset($_POST["eventTitle"]) &&
       // $error = $insert->errorCode();
       die("Database error."); // þarf kannski að meðhöndla eitthvað betur
     }
+    // post succeeded so we empty the variables from the form
+    $eventTitle       = "";
+    $eventStarting    = "";
+    $eventEnding      = "";
+    $registerStarting = "";
+    $registerEnding   = "";
+    $eventDescription = "";
+    $eventLocation    = "";
+    $eventSeats       = "";
   }
   
 }
@@ -193,14 +202,14 @@ _END;
       <form role="form" method="post" action="event.add.php">
         <div class="form-group">
           <label for="eventTitle">Titill atburðar</label>
-          <input class="form-control" id="eventTitle" name="eventTitle" placeholder="Titill">
+          <input class="form-control" id="eventTitle" name="eventTitle" placeholder="Titill" value="<?php echo $eventTitle; ?>">
         </div>
         
         <div class="row">
           <div class="form-group col-md-6">
             <label for="eventStarting">Atburður hefst</label>
             <div class='input-group date' id='datetimepicker1'>
-              <input id="eventStarting" name="eventStarting" type='text' class="form-control" data-format="dd-MM-yyyy" placeholder="dd-mm-áááá kk:mm" />
+              <input id="eventStarting" name="eventStarting" type='text' class="form-control" data-format="dd-MM-yyyy" placeholder="dd-mm-áááá kk:mm" value="<?php echo $eventStarting; ?>" />
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
               </span>
             </div>
@@ -208,7 +217,7 @@ _END;
           <div class="form-group col-md-6">
             <label for="eventEnding">Atburður endar</label>
             <div class='input-group date' id='datetimepicker2'>
-              <input id="eventEnding" name="eventEnding" type='text' class="form-control" data-format="dd-MM-yyyy" placeholder="dd-mm-áááá kk:mm" />
+              <input id="eventEnding" name="eventEnding" type='text' class="form-control" data-format="dd-MM-yyyy" placeholder="dd-mm-áááá kk:mm" value="<?php echo $eventEnding; ?>" />
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
               </span>
             </div>
@@ -219,7 +228,7 @@ _END;
           <div class="form-group col-md-6">
             <label for="registerStarting">Skráning hefst</label>
             <div class='input-group date' id='datetimepicker3'>
-              <input id="registerStarting" name="registerStarting" type='text' class="form-control" data-format="dd-MM-yyyy" placeholder="dd-mm-áááá kk:mm" />
+              <input id="registerStarting" name="registerStarting" type='text' class="form-control" data-format="dd-MM-yyyy" placeholder="dd-mm-áááá kk:mm" value="<?php echo $registerStarting; ?>" />
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
               </span>
             </div>
@@ -227,7 +236,7 @@ _END;
           <div class="form-group col-md-6">
             <label for="registerEnding">Skráning endar</label>
             <div class='input-group date' id='datetimepicker4'>
-              <input id="registerEnding" name="registerEnding" type='text' class="form-control" data-format="dd-MM-yyyy" placeholder="dd-mm-áááá kk:mm" />
+              <input id="registerEnding" name="registerEnding" type='text' class="form-control" data-format="dd-MM-yyyy" placeholder="dd-mm-áááá kk:mm" value="<?php echo $registerEnding; ?>" />
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
               </span>
             </div>
@@ -241,13 +250,13 @@ _END;
         
         <div class="form-group">
           <label for="eventLocation">Staðsetning atburðar</label>
-          <input class="form-control" id="eventLocation" name="eventLocation" placeholder="Staðsetning">
+          <input class="form-control" id="eventLocation" name="eventLocation" placeholder="Staðsetning" value="<?php echo $eventLocation; ?>">
         </div>
         
         <div class="row">
           <div class="form-group col-md-2">
             <label for="eventSeats">Fjöldi sæta</label>
-            <input class="form-control" id="eventSeats" name="eventSeats" placeholder="Fjöldi">
+            <input class="form-control" id="eventSeats" name="eventSeats" placeholder="Fjöldi" value="<?php echo $eventSeats; ?>">
           </div>
         </div>
         
