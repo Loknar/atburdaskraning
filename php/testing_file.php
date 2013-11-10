@@ -46,9 +46,14 @@ function truncateString($str, $maxlen) {
   return $str;
 }
 
+$salt1 = "v@ult";
+$salt2 = "pod!";
 
+$pass = "pass";
 
-echo strlen("");
+$encripted_pass = md5("$salt1$pass$salt2");
+
+echo $encripted_pass;
 
 
 /*

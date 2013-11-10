@@ -31,7 +31,10 @@ CREATE TABLE 'users' (
   PRIMARY KEY ('user_id')
 );
 -- insert one admin user into table 'users'
-INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Sveinn Flóki Guðmundsson','sfg6','a130de8848ff390cdd516b226b0d130c',1);
+INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Administrator','admin','cf05bf594424d63189a1ed90f540ee86',2);
+INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Sveinn Flóki Guðmundsson','sfg6','cf05bf594424d63189a1ed90f540ee86',1);
+INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Tómas Páll Máté','tpm1','cf05bf594424d63189a1ed90f540ee86',1);
+INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Guðmundur Már Gunnarsson','gmg13','cf05bf594424d63189a1ed90f540ee86',0);
 
 -- Table structure for table 'registrations'
 CREATE TABLE 'registrations' (
