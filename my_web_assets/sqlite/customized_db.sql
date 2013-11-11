@@ -9,13 +9,13 @@ DROP TABLE IF EXISTS 'registrations';
 CREATE TABLE 'events' (
   'event_id' integer NOT NULL,
   'title' text,
-  'start' numeric,
-  'end' numeric,
-  'registration_start' numeric,
-  'registration_end' numeric,
+  'start' integer,
+  'end' integer,
+  'registration_start' integer,
+  'registration_end' integer,
   'description' text,
   'location' text,
-  'seats' numeric,
+  'seats' integer,
   PRIMARY KEY ('event_id')
 );
 -- insert a dummy event into table 'events'
@@ -30,7 +30,7 @@ CREATE TABLE 'users' (
   'privileges' numeric,
   PRIMARY KEY ('user_id')
 );
--- insert one admin user into table 'users'
+-- insert a few users into table 'users'
 INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Administrator','admin','cf05bf594424d63189a1ed90f540ee86',2);
 INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Sveinn Flóki Guðmundsson','sfg6','cf05bf594424d63189a1ed90f540ee86',1);
 INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Tómas Páll Máté','tpm1','cf05bf594424d63189a1ed90f540ee86',1);

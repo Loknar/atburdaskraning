@@ -72,6 +72,10 @@ function get_post($var) {
 	return strip_tags($_POST[$var]);
 }
 
+// checks if a string holds an integer
+function holds_int($str) {
+  return filter_var($str, FILTER_VALIDATE_INT) !== false;
+}
 
 
 ?>

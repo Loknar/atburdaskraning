@@ -7,10 +7,10 @@ if (!isset($to_be_or_not_to_be)) {
 $result = $db->query("SELECT title,start,end,registration_start,registration_end,description,location,seats FROM events ORDER BY start;");
 foreach($result as $row_data) {
   $title = $row_data["title"];
-  $start = date("H:i d-m-Y", $row_data["start"]);
-  $end = date("H:i d-m-Y", $row_data["end"]);
-  $registration_start = date("H:i d-m-Y", $row_data["registration_start"]);
-  $registration_end = date("H:i d-m-Y", $row_data["registration_end"]);
+  $start = date("d-m-Y H:i", $row_data["start"]);
+  $end = date("d-m-Y H:i", $row_data["end"]);
+  $registration_start = date("d-m-Y H:i", $row_data["registration_start"]);
+  $registration_end = date("d-m-Y H:i", $row_data["registration_end"]);
   $description = nl2br($row_data["description"]);
   $location = $row_data["location"];
   $seats = $row_data["seats"];

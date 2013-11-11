@@ -65,11 +65,11 @@ if(isset($_POST["eventTitle"]) &&
   }
   if(validateDatetime($eventEnding)) {
     $eventEnding_Unixtime = strtotime($eventEnding);
-    $eventEnding = "";
   }
   else {
     $post_success = false;
     $post_error .= "<li>Formvilla á inntaki fyrir endi atburðar.</li>\n";
+    $eventEnding = "";
   }
   if(validateDatetime($registerStarting)) {
     $registerStarting_Unixtime = strtotime($registerStarting);
@@ -105,7 +105,7 @@ if(isset($_POST["eventTitle"]) &&
   }
   
   // event seats should be an integer and not an empty string
-  if(is_int($eventSeats)) {
+  if(holds_int($eventSeats)) {
     // max length of event location is 200 characters
     $eventSeats_int = (int) $eventSeats;
   }
@@ -117,7 +117,7 @@ if(isset($_POST["eventTitle"]) &&
   if($post_success) {
     // insert event into database
     $insert = $db->prepare("INSERT INTO 'events' ('title','start','end','registration_start','registration_end','description','location','seats') VALUES (:title,:start,:end,:registration_start,:registration_end,:description,:location,:seats)");
-    $result = $insert->execute(array('title' => $eventTitle,'start' => $eventStarting,'end' => $eventEnding,'registration_start' => $registerStarting,'registration_end' => $registerEnding,'description' => $eventDescription,'location' => $eventLocation,'seats' => $eventSeats));
+    $result = $insert->execute(array('title' => $eventTitle,'start' => $eventStarting,'end' => $eventEnding,'registration_start' => $registerStarting,'registration_end' => $registerEnding,'description' => $eventDescription,'location' => $eventLocation,'seats' => $eventSeats_int));
     if(!$result) {
       // $error = $insert->errorCode();
       die("Database error."); // þarf kannski að meðhöndla eitthvað betur
@@ -132,7 +132,6 @@ if(isset($_POST["eventTitle"]) &&
     $eventLocation    = "";
     $eventSeats       = "";
   }
-  
 }
 
 ?>

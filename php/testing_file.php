@@ -53,7 +53,17 @@ $pass = "pass";
 
 $encripted_pass = md5("$salt1$pass$salt2");
 
-echo $encripted_pass;
+$my_var = "0";
+
+
+if(filter_var($my_var, FILTER_VALIDATE_INT)) {
+  echo "virkar";
+  echo $my_var;
+}
+
+echo "\n";
+
+var_dump(filter_var("0", FILTER_VALIDATE_INT));
 
 
 /*
