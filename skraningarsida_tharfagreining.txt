@@ -1,0 +1,55 @@
+
+Hvað á síðan að gera?
+- birta á forsíðu nýjustu fimm fréttir - index.php
+- birta á forsíðu lista yfir næstu fimm atburði - index.php
+- sýna lista yfir allar fréttir - news.php
+- sýna lista yfir alla atburði - events.php
+- sjá lista yfir nöfn skráðra félaga - users.php
+- bjóða gesti að skrá sig inn - login.php
+
+Hvað geta notendur gert?
+
+Venjulegur notandi getur: 
+- loggað sig út - logout.php
+- séð skráningarlista - event.php?id=1
+- skráð/afskráð sig í atburð á skráningartíma - event.php
+- geta breytt lykilorði sínu - mysite.php
+
+Moderator getur:
+- sett inn nýjar fréttir - news.add.php
+- breytt skráðum fréttum - news.change.php?id=1
+- sett inn nýja atburði - event.add.php
+- breytt skráðum atburðum - event.change.php?id=1
+- bætt við venjulegum notendum (setur dummy password sem notandi á svo að breyta) - user.add.php
+- breytt venjulegum notanda - user.change.php
+- gert allt sem venjulegur notandi getur gert
+
+
+Admin getur: 
+- breytt notanda í:
+  * venjulegan notanda  \
+  * moderator            | - user.change.php
+  * admin               /
+- opnað fyrir forskráningar á atburð fyrir moderators - event.change.php?id=1
+- eytt skráðum fréttum - news.change.php?id=1
+- eytt skráðum atburðum - event.change.php?id=1
+- getur gert allt sem moderator getur gert
+
+
+
+
+// listi yfir skrár sem þarf að gera
+index.php
+news.php
+events.php
+users.php
+login.php *
+logout.php *
+event.php
+mysite.php
+news.add.php
+news.change
+event.add.php *
+event.change.php
+user.add.php
+user.change.php
