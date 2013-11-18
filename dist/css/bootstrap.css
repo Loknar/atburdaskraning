@@ -4065,7 +4065,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   clear: both;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) { /* changed by sv1floki (was 768px) */
   .navbar-header {
     float: left;
   }
@@ -4105,7 +4105,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   overflow-y: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) { /* changed by sv1floki (was 768px) */
   .navbar-collapse {
     width: auto;
     border-top: 0;
@@ -4221,7 +4221,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   margin-top: 4px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) { /* changed by sv1floki (was 768px) */
   .navbar-toggle {
     display: none;
   }
