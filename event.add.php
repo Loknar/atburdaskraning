@@ -117,7 +117,7 @@ if(isset($_POST["eventTitle"]) &&
   if($post_success) {
     // insert event into database
     $insert = $db->prepare("INSERT INTO 'events' ('title','start','end','registration_start','registration_end','description','location','seats') VALUES (:title,:start,:end,:registration_start,:registration_end,:description,:location,:seats)");
-    $result = $insert->execute(array('title' => $eventTitle,'start' => $eventStarting,'end' => $eventEnding,'registration_start' => $registerStarting,'registration_end' => $registerEnding,'description' => $eventDescription,'location' => $eventLocation,'seats' => $eventSeats_int));
+    $result = $insert->execute(array('title' => $eventTitle,'start' => $eventStarting_Unixtime,'end' => $eventEnding_Unixtime,'registration_start' => $registerStarting_Unixtime,'registration_end' => $registerEnding_Unixtime,'description' => $eventDescription,'location' => $eventLocation,'seats' => $eventSeats_int));
     if(!$result) {
       // $error = $insert->errorCode();
       die("Database error."); // þarf kannski að meðhöndla eitthvað betur
