@@ -1,25 +1,10 @@
 -- Updated sqlite database for events website
 -- By Sveinn Floki Gudmundsson
 
-DROP TABLE IF EXISTS 'events';
 DROP TABLE IF EXISTS 'users';
+DROP TABLE IF EXISTS 'news';
+DROP TABLE IF EXISTS 'events';
 DROP TABLE IF EXISTS 'registrations';
-
--- Table structure for table 'events'
-CREATE TABLE 'events' (
-  'event_id' integer NOT NULL,
-  'title' text,
-  'start' integer,
-  'end' integer,
-  'registration_start' integer,
-  'registration_end' integer,
-  'description' text,
-  'location' text,
-  'seats' integer,
-  PRIMARY KEY ('event_id')
-);
--- insert a dummy event into table 'events'
-INSERT INTO 'events' ('title','start','end','registration_start','registration_end','description','location','seats') VALUES ('Haustmisserispróf',1385971200,1387296000,1385971200,1387296000,'Haustmisserispróf fara fram dagana 2. - 17. desember.','Háskóli Íslands',0);
 
 -- Table structure for table 'users'
 CREATE TABLE 'users' (
@@ -35,6 +20,40 @@ INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Administrator',
 INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Sveinn Flóki Guðmundsson','sfg6','cf05bf594424d63189a1ed90f540ee86',1);
 INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Tómas Páll Máté','tpm1','cf05bf594424d63189a1ed90f540ee86',1);
 INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Guðmundur Már Gunnarsson','gmg13','cf05bf594424d63189a1ed90f540ee86',0);
+
+-- Table structure for table 'news'
+CREATE TABLE 'news' (
+  'news_id' integer NOT NULL,
+  'title' text,
+  'description' text,
+  'date_created' integer,
+  'date_edited' integer,
+  'creator' integer,
+  'last_editor' integer,
+  PRIMARY KEY ('news_id')
+);
+-- insert a dummy event into table 'events'
+INSERT INTO 'news' ('title','description','date_created','date_edited','creator','last_editor') VALUES ('Dummy frétt','Lýsing fréttar eitthvað awesome, admin gerði þessa frétt :D',1385971200,1387296000,1,1);
+
+-- Table structure for table 'events'
+CREATE TABLE 'events' (
+  'event_id' integer NOT NULL,
+  'title' text,
+  'start' integer,
+  'end' integer,
+  'registration_start' integer,
+  'registration_end' integer,
+  'description' text,
+  'location' text,
+  'seats' integer,
+  'date_created' integer,
+  'date_edited' integer,
+  'creator' integer,
+  'last_editor' integer,
+  PRIMARY KEY ('event_id')
+);
+-- insert a dummy event into table 'events'
+INSERT INTO 'events' ('title','start','end','registration_start','registration_end','description','location','seats') VALUES ('Haustmisserispróf',1385971200,1387296000,1385971200,1387296000,'Haustmisserispróf fara fram dagana 2. - 17. desember.','Háskóli Íslands',0);
 
 -- Table structure for table 'registrations'
 CREATE TABLE 'registrations' (
