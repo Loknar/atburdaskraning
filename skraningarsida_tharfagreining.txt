@@ -33,6 +33,7 @@ Admin getur:
 - opnað fyrir forskráningar á atburð fyrir moderators - event.change.php?id=1
 - eytt skráðum fréttum - news.change.php?id=1
 - eytt skráðum atburðum - event.change.php?id=1
+- breytt öllum notendum - user.change.php
 - getur gert allt sem moderator getur gert
 
 
