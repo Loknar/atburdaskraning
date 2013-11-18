@@ -158,7 +158,6 @@ if(isset($_POST["eventTitle"]) &&
   <body>
 
 <?php
-$event_add_active = " class=\"active\"";
 require_once "parts/navbar.php";
 ?>
 
