@@ -8,10 +8,17 @@ if (!isset($index_active)) {
   $index_active = "";
 }
 
-if (!isset($event_add_active)) {
-  $event_add_active = "";
+if (!isset($news_active)) {
+  $news_active = "";
 }
 
+if (!isset($events_active)) {
+  $events_active = "";
+}
+
+if (!isset($users_active)) {
+  $users_active = "";
+}
 
 
 echo <<<_END
@@ -29,7 +36,9 @@ echo <<<_END
             <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
                 <li$index_active><a href="index.php">Forsíða</a></li>
-                <li$event_add_active><a href="event.add.php">Skrá nýjan atburð</a></li>
+                <li$news_active><a href="#">Fréttir</a></li>
+                <li$events_active><a href="#">Atburðir</a></li>
+                <li$users_active><a href="#">Félagar</a></li>
               </ul>
 _END;
 
