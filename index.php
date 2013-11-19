@@ -19,6 +19,7 @@ require_once "php/head.php";
 
     <!-- Custom styles -->
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/offcanvas.css" rel="stylesheet">
   </head>
 
   <body>
@@ -30,47 +31,42 @@ require_once "parts/navbar.php";
 
     <div class="container">
 
-      <div class="starter-template">
-        <h1>Velkomin/n á Atburðaskráningasíðuna</h1>
-        <p class="lead">
-        Á þessari síðu geta stjórnendur sett inn atburði/skráningar.<br /> 
-        Á skráningartímabili atburðar geta notendur skráð sig á tiltekinn atburð.
-        </p>
-        <p>
-        tl:dr vísóskráningarsíða yayy <br /> 
-<?php
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          
+          <div class="row">
+            <br/>
+            <br/>
+            <br/>
+            <div class="bs-example">
+                  <div class="page-header">
+                    <h1>Example page header <small>Subtext for header</small></h1>
+                  </div>
+                </div>
+          </div><!--/row-->
+        </div><!--/span-->
 
-if (USER_LOGGEDIN) {
-  echo "innskráður notandi\n";
-}
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">Link</a>
+            <a href="#" class="list-group-item">
+              <p>Vísindaferð í Ölgerðina - 21. Nóv.<br />
+              <span class="label label-default">Skráning hefst 1. Des</span></p>
+            </a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-user"></span> Linkur með löngum texta til að tékka hvernig þetta lítur allt saman út</a>
+            <a href="#" class="list-group-item"><span class="label label-default">Default</span> Linkur með löngum texta til að tékka hvernig þetta lítur allt saman út</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">Link</a>
+          </div>
+        </div><!--/span-->
 
-if (isset($_GET['title']))
-{
-  $title = $_GET['title'];
-  $insert = $db->prepare("INSERT INTO events (title) VALUES(:title);");
-  $insert->execute(array('title' => $title));
-  
-  echo "Bætti ".$title." við! <br />\n";
-}
-
-echo "Getting event titles from database.<br />\n";
-$result = $db->query("SELECT title FROM events;");
-foreach($result as $row_data)
-{
-  echo $row_data["title"]."\n";
-}
-
-$pass = "adminpowers";
-$encripted_pass = md5("$salt1$pass$salt2");
-echo $encripted_pass."\n";
-
-echo time();
-
-?>
-        </p>
-      </div>
-      <h2>Skráðir atburðir</h2>
-<?php require_once "parts/listed.events.php"; ?>
     </div><!-- /.container -->
 
 
@@ -79,5 +75,6 @@ echo time();
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
+    <script src="js/offcanvas.js"></script>
   </body>
 </html>
