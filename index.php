@@ -34,36 +34,38 @@ require_once "parts/navbar.php";
       <div class="row row-offcanvas row-offcanvas-right">
         <div class="col-xs-12 col-sm-9">
           <p class="pull-right visible-xs">
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Næstu atburðir</button>
           </p>
           
           <div class="row">
-            <br/>
-            <br/>
-            <br/>
-            <div class="bs-example">
-                  <div class="page-header">
-                    <h1>Example page header <small>Subtext for header</small></h1>
-                  </div>
-                </div>
+            <div>
+              <h2>Frétt</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn btn-default" href="#" role="button">Lesa nánar &raquo;</a></p>
+            </div>
+            <div>
+              <h2>Önnur frétt</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn btn-default" href="#" role="button">Lesa nánar &raquo;</a></p>
+            </div>
           </div><!--/row-->
         </div><!--/span-->
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
           <div class="list-group">
-            <a href="#" class="list-group-item active">Link</a>
+            <li class="list-group-item active">Næstu atburðir</li>
             <a href="#" class="list-group-item">
-              <p>Vísindaferð í Ölgerðina - 21. Nóv.<br />
-              <span class="label label-default">Skráning hefst 1. Des</span></p>
+              <p>Vísindaferð í Ölgerðina - 30. Nóv.<br />
+              <p class="text-muted">Skráning hefst 1. Des</p>
             </a>
-            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-user"></span> Linkur með löngum texta til að tékka hvernig þetta lítur allt saman út</a>
-            <a href="#" class="list-group-item"><span class="label label-default">Default</span> Linkur með löngum texta til að tékka hvernig þetta lítur allt saman út</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
+            <a href="#" class="list-group-item">
+              <p>Vísindaferð í gæludýrabúð - 21. Nóv.<br />
+              <span class="label label-success">Skráning í gangi</span></p>
+            </a>
+            <a href="#" class="list-group-item">
+              <p>Vísindaferð í Ölgerðina - 20. Nóv.<br />
+              <span class="label label-warning">Skráningu lokið</span></p>
+            </a>
           </div>
         </div><!--/span-->
 
