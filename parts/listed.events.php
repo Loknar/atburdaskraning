@@ -4,8 +4,10 @@ if (!isset($to_be_or_not_to_be)) {
   exit();
 }
 
+$temp_counter = 0;
 $result = $db->query("SELECT title,start,end,registration_start,registration_end,description,location,seats FROM events ORDER BY start;");
 foreach($result as $row_data) {
+  $temp_counter++;
   $title = $row_data["title"];
   $start = date("d-m-Y H:i", $row_data["start"]);
   $end = date("d-m-Y H:i", $row_data["end"]);
@@ -21,12 +23,12 @@ foreach($result as $row_data) {
         <div class="panel panel-default">
           <div class="panel-heading">
           <h3 class="panel-title">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse$temp_counter">
               $title <small>Hefst $start, lýkur $end</small>
             </a>
           </h3>
           </div>
-          <div id="collapseOne" class="panel-collapse collapse">
+          <div id="collapse$temp_counter" class="panel-collapse collapse">
             <div class="panel-body">
               <p>
               $description
