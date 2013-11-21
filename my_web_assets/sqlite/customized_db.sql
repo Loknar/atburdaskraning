@@ -32,7 +32,7 @@ CREATE TABLE 'news' (
   'last_editor' integer,
   PRIMARY KEY ('news_id')
 );
--- insert a dummy event into table 'events'
+-- insert a dummy event into table 'news'
 INSERT INTO 'news' ('title','description','date_created','date_edited','creator','last_editor') VALUES ('Dummy frétt','Lýsing fréttar eitthvað awesome, admin gerði þessa frétt :D',1385971200,1387296000,1,1);
 
 -- Table structure for table 'events'
