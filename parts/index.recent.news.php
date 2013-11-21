@@ -9,7 +9,7 @@ $now = time();
 
 // here we want to get next 5 upcoming events from database
 // preparing statement
-$query = $db->prepare("SELECT title,description,date_created,date_edited,creator,last_editor,news_id FROM news ORDER BY date_created DESC LIMIT 0, 5;");
+$query = $db->prepare("SELECT title,description,date_created,date_edited,creator,last_editor,news_id FROM news ORDER BY date_created LIMIT 0, 5;");
 $query->execute(); // no variables to add
 // fetch results into a results variable
 $result = $query->fetchAll();
