@@ -38,12 +38,12 @@ require_once "parts/navbar.php";
           </p>
           
           <div class="row">
-            <div>
+            <div class="fretta_haldari">
               <h2>Frétt</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
               <p><a class="btn btn-default" href="#" role="button">Lesa nánar &raquo;</a></p>
             </div>
-            <div>
+            <div class="fretta_haldari">
               <h2>Önnur frétt</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
               <p><a class="btn btn-default" href="#" role="button">Lesa nánar &raquo;</a></p>
@@ -53,19 +53,8 @@ require_once "parts/navbar.php";
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
           <div class="list-group">
-            <li class="list-group-item active">Næstu atburðir</li>
-            <a href="#" class="list-group-item">
-              <p>Vísindaferð í Ölgerðina - 30. Nóv.<br />
-              <p class="text-muted">Skráning hefst 1. Des</p>
-            </a>
-            <a href="#" class="list-group-item">
-              <p>Vísindaferð í gæludýrabúð - 21. Nóv.<br />
-              <span class="label label-success">Skráning í gangi</span></p>
-            </a>
-            <a href="#" class="list-group-item">
-              <p>Vísindaferð í Ölgerðina - 20. Nóv.<br />
-              <span class="label label-warning">Skráningu lokið</span></p>
-            </a>
+          <li class="list-group-item active">Næstu atburðir</li>
+            <?php require_once "parts/index.sidebar.events.php"; ?>
           </div>
         </div><!--/span-->
 
