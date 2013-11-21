@@ -6,6 +6,15 @@ body {
   text-align: center;
 }
 
+/* frétta haldari */
+@media (max-width: 767px) {
+    .fretta_haldari {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+
+
 .bs-example {
   position: relative;
   padding: 45px 15px 15px;
