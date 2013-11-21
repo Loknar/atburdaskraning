@@ -38,23 +38,14 @@ require_once "parts/navbar.php";
           </p>
           
           <div class="row">
-            <div class="fretta_haldari">
-              <h2>Frétt</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-default" href="#" role="button">Lesa nánar &raquo;</a></p>
-            </div>
-            <div class="fretta_haldari">
-              <h2>Önnur frétt</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-default" href="#" role="button">Lesa nánar &raquo;</a></p>
-            </div>
+<?php require_once "parts/index.recent.news.php"; ?>
           </div><!--/row-->
         </div><!--/span-->
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
           <div class="list-group">
           <li class="list-group-item active">Næstu atburðir</li>
-            <?php require_once "parts/index.sidebar.events.php"; ?>
+<?php require_once "parts/index.sidebar.events.php"; ?>
           </div>
         </div><!--/span-->
 
