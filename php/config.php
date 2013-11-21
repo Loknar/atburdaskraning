@@ -8,8 +8,8 @@ define("HOST_USER", "sfg6");
 // notandi með vefsvæðið https://notendur.hi.is/~sfg6/ hefur notandanafnið sfg6
 
 // Hér má breyta nokkrum hlutum varðandi síðuna
-$website_title = "Titll skráningarsíðu";
-$website_name = "Nafn skráningarsíðu";
+$website_title = "Titll síðu";
+$website_name = "Nafn síðu";
 
 // ef síðan er sett í undirmöppu í .public_html möppunni þá þarf að setja þær inn hér, annars setja sem ""
 $website_subfolder = "skraningarsida/";
