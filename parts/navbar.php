@@ -36,9 +36,9 @@ echo <<<_END
             <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
                 <li$index_active><a href="index.php">Forsíða</a></li>
-                <li$news_active><a href="#">Fréttir</a></li>
-                <li$events_active><a href="#">Atburðir</a></li>
-                <li$users_active><a href="#">Félagar</a></li>
+                <li$news_active><a href="news.php">Fréttir</a></li>
+                <li$events_active><a href="events.php">Atburðir</a></li>
+                <li$users_active><a href="users.php">Félagar</a></li>
               </ul>
 _END;
 
@@ -51,7 +51,7 @@ if (USER_LOGGEDIN) {
                     <span class="glyphicon glyphicon-user"></span> $user_name <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Síðan mín</a></li>
+                    <li><a href="mysite.php">Síðan mín</a></li>
                     <li><a href="event.add.php">Skrá nýjan atburð</a></li>
                     <li class="divider"></li>
                     <li><a href="logout.php">Útskrá</a></li>
