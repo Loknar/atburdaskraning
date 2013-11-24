@@ -1,7 +1,11 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-ini_set('display_errors', 'On');
 error_reporting(E_ALL);
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
+
+// set wanted time zone
+date_default_timezone_set("Atlantic/Reykjavik");
 
 // load config file
 require_once "php/config.php";
