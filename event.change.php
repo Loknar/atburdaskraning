@@ -213,7 +213,7 @@ _END;
 
 ?>
 
-      <form role="form" method="post" action="event.change.php?id=<?php echo $event_id?>">
+      <form role="form" method="post" action="event.change.php?id=<?php echo $event_id; ?>">
         <div class="form-group">
           <label for="eventTitle">Titill atburðar</label>
           <input class="form-control" id="eventTitle" name="eventTitle" placeholder="Titill" value="<?php echo $eventTitle; ?>">
