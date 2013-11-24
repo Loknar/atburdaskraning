@@ -77,5 +77,13 @@ function holds_int($str) {
   return filter_var($str, FILTER_VALIDATE_INT) !== false;
 }
 
+// gets an integer from GET variable, if it's not set or not an integer then returns 0
+function intGET($name) {
+  if (filter_has_var(INPUT_GET, $name) !== False && filter_input(INPUT_GET, $name, FILTER_VALIDATE_INT) !== False) {
+    return filter_input(INPUT_GET, $name, FILTER_SANITIZE_NUMBER_INT);
+  }
+  return 0;
+}
+
 
 ?>
