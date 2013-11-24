@@ -46,7 +46,7 @@ if($valid_event_id && isset($_POST["unregister"])) {
   // insert variables safely into the prepared statement and execute it
   $result = $query->execute(array('user_id' => USER_ID,'event_id' => $event_id));
   
-  //echo "unregistering";
+  //echo "unregistered";
 }
 
 ?>
