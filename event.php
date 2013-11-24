@@ -1,42 +1,45 @@
 <?php
 require_once "php/head.php";
 
+requireLogin();
+
 // get id
 $event_id = intGET("id");
 
 // check if given id is valid or not, and fetch info about the event if id is valid
-
 // preparing statement
 $query = $db->prepare("SELECT title,start,end,registration_start,registration_end,description,location,seats FROM events WHERE event_id = :event_id;");
 // insert variables safely into the prepared statement and execute it
 $query->execute(array('event_id' => $event_id));
 // fetch results into a results variable
 $event_result = $query->fetchAll();
-
 if (0 < count($event_result)) $valid_event_id = True;
 else $valid_event_id = False;
 
-
-// get current time
-$now = time();
-
-// if id valid handle post register
-if($valid_event_id && isset($_POST["register"])) {
+// if id valid check if user is registered to the event
+if ($valid_event_id) {
   // preparing statement
   $query = $db->prepare("SELECT user_id FROM registrations WHERE event_id=:event_id;");
   // insert variables safely into the prepared statement and execute it
   $query->execute(array('event_id' => $event_id));
   // fetch results into a results variable
   $result = $query->fetchAll();
-  
-  if (0 == count($result)) {
-    // preparing statement
-    $query = $db->prepare("INSERT INTO 'registrations' ('user_id','event_id','timing') VALUES (:user_id,:event_id,:timing);");
-    // insert variables safely into the prepared statement and execute it
-    $result = $query->execute(array('user_id' => USER_ID,'event_id' => $event_id, 'timing' => $now));
+  if (0 == count($result)) $user_registered_to_event = False;
+  else $user_registered_to_event = True;
+}
 
-    //echo "registered";
-  }
+// get current time
+$now = time();
+
+// if id valid handle post register
+if($valid_event_id && isset($_POST["register"]) && !$user_registered_to_event) {
+  // preparing statement
+  $query = $db->prepare("INSERT INTO 'registrations' ('user_id','event_id','timing') VALUES (:user_id,:event_id,:timing);");
+  // insert variables safely into the prepared statement and execute it
+  $result = $query->execute(array('user_id' => USER_ID,'event_id' => $event_id, 'timing' => $now));
+  
+  $user_registered_to_event = True;
+  //echo "registered";
 }
 
 // if id valid handle post unregister
@@ -46,6 +49,7 @@ if($valid_event_id && isset($_POST["unregister"])) {
   // insert variables safely into the prepared statement and execute it
   $result = $query->execute(array('user_id' => USER_ID,'event_id' => $event_id));
   
+  $user_registered_to_event = False;
   //echo "unregistered";
 }
 
@@ -132,14 +136,8 @@ _END;
   }
   else {
     // registration open
-    echo <<<_END
-        <p>Takki til að skrá sig hér takk ... </p>
-        <form role="form" method="post" action="event.php?id=$event_id">
-          <input type="hidden" name="register" value="do it" />
-          <button type="submit" class="btn btn-success">Skrá mig</button>
-        </form>
-        
-        <p>... eða takki til að afskrá sig er maður er nú þegar skráður</p>
+    if ($user_registered_to_event) {
+      echo <<<_END
         <!-- Button trigger modal -->
         <button class="btn btn-danger" data-toggle="modal" data-target="#confirmUnregister">
           Afskrá mig
@@ -168,8 +166,17 @@ _END;
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-        
+
 _END;
+    }
+    else {
+      echo <<<_END
+        <form role="form" method="post" action="event.php?id=$event_id">
+          <input type="hidden" name="register" value="do it" />
+          <button type="submit" class="btn btn-success">Skrá mig</button>
+        </form>
+_END;
+    }
   }
   // different things shown based on whether registartion is not yet started, started or over
   
