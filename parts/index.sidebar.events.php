@@ -9,7 +9,7 @@ $now = time();
 
 // here we want to get next 5 upcoming events from database
 // preparing statement
-$query = $db->prepare("SELECT title,start,end,registration_start,registration_end,description,location,seats,event_id FROM events WHERE start > :now ORDER BY start LIMIT 0, 5;");
+$query = $db->prepare("SELECT title,start,end,registration_start,registration_end,description,location,seats,event_id FROM events WHERE end > :now ORDER BY start LIMIT 0, 5;");
 // insert variables safely into the prepared statement and execute it
 $query->execute(array('now' => $now));
 // fetch results into a results variable
