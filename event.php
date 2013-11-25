@@ -19,9 +19,9 @@ else $valid_event_id = False;
 // if id valid check if user is registered to the event
 if ($valid_event_id) {
   // preparing statement
-  $query = $db->prepare("SELECT user_id FROM registrations WHERE event_id=:event_id;");
+  $query = $db->prepare("SELECT user_id FROM registrations WHERE event_id=:event_id AND user_id=:user_id;");
   // insert variables safely into the prepared statement and execute it
-  $query->execute(array('event_id' => $event_id));
+  $query->execute(array('event_id' => $event_id,'user_id' => USER_ID));
   // fetch results into a results variable
   $result = $query->fetchAll();
   if (0 == count($result)) $user_registered_to_event = False;
@@ -183,7 +183,7 @@ _END;
   // now we want to fetch users that have registered to this event
   
   // preparing statement
-  $query = $db->prepare("SELECT name FROM users WHERE user_id = (SELECT user_id FROM registrations WHERE event_id=:event_id ORDER BY timing DESC);");
+  $query = $db->prepare("SELECT name,user_id FROM users WHERE user_id IN (SELECT user_id FROM registrations WHERE event_id=:event_id ORDER BY timing DESC);");
   // insert variables safely into the prepared statement and execute it
   $query->execute(array('event_id' => $event_id));
   // fetch results into a results variable
@@ -191,6 +191,7 @@ _END;
   //var_dump($result);
   
   echo <<<_END
+        <div style="width:260px; margin-top: 15px; margin-left: auto; margin-right: auto;">
         <ol>
 _END;
   
@@ -210,6 +211,7 @@ _END;
   
   echo <<<_END
         </ol>
+        </div>
 _END;
   
 }
