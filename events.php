@@ -24,7 +24,7 @@ require_once "php/head.php";
   <body>
 
 <?php
-$index_active = " class=\"active\"";
+$events_active = " class=\"active\"";
 require_once "parts/navbar.php";
 ?>
 
