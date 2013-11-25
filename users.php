@@ -24,17 +24,31 @@ require_once "php/head.php";
   <body>
 
 <?php
-$index_active = " class=\"active\"";
+$users_active = " class=\"active\"";
 require_once "parts/navbar.php";
 ?>
 
     <div class="container">
 
       <div class="starter-template">
-        <h1>Tóm skel</h1>
-        <p>
-        ...
-        </p>
+        <h1>Notendur</h1>
+<?php
+
+// preparing statement
+$query = $db->prepare("SELECT name,post,privileges FROM users ORDER BY name;");
+// insert variables safely into the prepared statement and execute it
+$query->execute();
+// fetch results into a results variable
+$users = $query->fetchAll();
+foreach($users as $user) {
+  $user_name = $user["name"];
+  echo <<<_END
+  <p>$user_name</p>
+_END;
+}
+?>
+
+      </div>
     </div><!-- /.container -->
 
 
