@@ -52,7 +52,18 @@ if (USER_LOGGEDIN) {
                   </button>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="mysite.php">Síðan mín</a></li>
+
+_END;
+  if (USER_PRIVILEGES == 1 || USER_PRIVILEGES == 2) { // moderator or admin
+    echo <<<_END
+                    <li><a href="news.add.php">Skrá nýja frétt</a></li>
                     <li><a href="event.add.php">Skrá nýjan atburð</a></li>
+                    <li><a href="user.add.php">Bæta við notanda</a></li>
+
+_END;
+  }
+
+  echo <<<_END
                     <li class="divider"></li>
                     <li><a href="logout.php">Útskrá</a></li>
                   </ul>
