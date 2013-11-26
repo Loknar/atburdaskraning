@@ -10,20 +10,27 @@ $login_error = "";
 if (isset($_POST['user']) && isset($_POST['pass'])) {
   $user = $_POST['user'];
   $pass = $_POST['pass'];
-  //$encripted_pass = md5("$salt1$pass$salt2");
+  $encripted_pass = encriptPassword($pass, $salt1, $salt2);
   
   // check in database for user
   $query = $db->prepare("SELECT name,post,pass,privileges FROM users WHERE post=:post;");
   $query->execute(array('post' => $user));
   $result = $query->fetchAll();
-  if (1 == count($result) && uglaValidateLogin($user, $pass)) {
-    //$result = $result[0];
-    //$name = $result['name'];
-    //$post = $result['post'];
-    
-    $_SESSION['loggedin_user'] = $user;
-    //$_SESSION['user_hash_key'] = $encripted_pass; // commented out because bad idea to store pass in session variable
-    redirectToRoot();
+  if (1 == count($result)) {
+    $result = $result[0];
+    $db_pass = $result['pass'];
+    if ($user == "admin" && $encripted_pass == $db_pass) {
+      $_SESSION['loggedin_user'] = $user;
+      redirectToRoot();
+    }
+    elseif (uglaValidateLogin($user, $pass)) {
+      $_SESSION['loggedin_user'] = $user;
+      //$_SESSION['user_hash_key'] = $encripted_pass; // commented out because bad idea to store pass in session variable
+      redirectToRoot();
+    }
+    else {
+      // login failed, maybe do something here
+    }
   }
   else {
     // login failed, maybe do something here
