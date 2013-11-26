@@ -26,7 +26,7 @@ if (isset($_POST['user']) && isset($_POST['pass'])) {
     redirectToRoot();
   }
   else {
-    // login failed
+    // login failed, maybe do something here
   }
 }
 
