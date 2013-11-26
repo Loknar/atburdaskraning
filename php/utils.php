@@ -86,4 +86,46 @@ function intGET($name) {
 }
 
 
+// Descr:  Ugla.hi.is-validator
+// Usage:  $result = uglaValidateLogin($user, $pass)
+// Before: $user and pass are strings
+// After:  $result is true if able to login to ugla.hi.is with given variables
+function uglaValidateLogin($user, $pass) {
+  // create a new cURL resource
+  $ch = curl_init();
+  
+  // set URL
+  curl_setopt($ch, CURLOPT_URL, "https://ugla.hi.is/");
+  // turn off directly outputting header
+  curl_setopt($ch, CURLOPT_HEADER, false);
+  // turn off directly outputting response
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  // enable POST method
+  curl_setopt($ch, CURLOPT_POST, true);
+
+  // prepare POST data
+  $post_data = array(
+    'username' => $user, 
+    'password' => $pass,
+    'enter_url' => '/index.php?',
+    'submit' => 'Innskrá'
+  );
+
+  // pass the POST data
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data );
+
+  // grab URL and pass it to the browser
+  $result = curl_exec($ch);
+
+  $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+  // close cURL resource (free up system resources)
+  curl_close($ch);
+  
+  // Notfærum okkur að ef innskráning heppnast er okkur redirectað með response status 302,
+  // ef innskráning heppnast ekki fáum við response status 200.
+  if ($http_status == 302) return true;
+  else return false;
+}
+
 ?>

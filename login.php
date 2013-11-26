@@ -10,20 +10,23 @@ $login_error = "";
 if (isset($_POST['user']) && isset($_POST['pass'])) {
   $user = $_POST['user'];
   $pass = $_POST['pass'];
-  $encripted_pass = md5("$salt1$pass$salt2");
+  //$encripted_pass = md5("$salt1$pass$salt2");
   
   // check in database for user
-  $query = $db->prepare("SELECT name,post,pass,privileges FROM users WHERE post=:post AND pass=:pass;");
-  $query->execute(array('post' => $user, 'pass' => $encripted_pass));
+  $query = $db->prepare("SELECT name,post,pass,privileges FROM users WHERE post=:post;");
+  $query->execute(array('post' => $user));
   $result = $query->fetchAll();
-  if (!empty($result)) {
-    $result = $result[0];
-    $name = $result['name'];
-    $post = $result['name'];
+  if (1 == count($result) && uglaValidateLogin($user, $pass)) {
+    //$result = $result[0];
+    //$name = $result['name'];
+    //$post = $result['post'];
     
     $_SESSION['loggedin_user'] = $user;
     //$_SESSION['user_hash_key'] = $encripted_pass; // commented out because bad idea to store pass in session variable
     redirectToRoot();
+  }
+  else {
+    // login failed
   }
 }
 
