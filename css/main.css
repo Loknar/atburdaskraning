@@ -14,6 +14,14 @@ body {
     }
 }
 
+/* event div */
+.fixed_width {
+    width:260px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 .bs-example {
   position: relative;

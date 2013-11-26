@@ -190,7 +190,7 @@ _END;
   //var_dump($result);
   
   echo <<<_END
-        <div style="width:260px; margin-top: 15px; margin-left: auto; margin-right: auto;">
+        <div class="fixed_width">
         <ol>
 _END;
   
