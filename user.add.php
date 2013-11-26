@@ -1,6 +1,9 @@
 <?php
 require_once "php/head.php";
 
+// this page requires moderator or administrator login to access
+requireMod();
+
 ?>
 <!DOCTYPE html>
 <html lang="is">
@@ -31,10 +34,11 @@ require_once "parts/navbar.php";
     <div class="container">
 
       <div class="starter-template">
-        <h1>Tóm skel</h1>
+        <h1>Bæta við notanda</h1>
         <p>
         ...
         </p>
+      </div>
     </div><!-- /.container -->
 
 
