@@ -85,8 +85,12 @@ function intGET($name) {
   return 0;
 }
 
+function encriptPassword($pass, $salt1="", $salt2="") {
+  return hash('sha256', "$salt1$pass$salt2");
+}
 
-// Descr:  Ugla.hi.is-validator
+
+// Descr:  Ugla.hi.is login-validator
 // Usage:  $result = uglaValidateLogin($user, $pass)
 // Before: $user and pass are strings
 // After:  $result is true if able to login to ugla.hi.is with given variables
