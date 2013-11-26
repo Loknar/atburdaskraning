@@ -31,10 +31,12 @@ require_once "parts/navbar.php";
     <div class="container">
 
       <div class="starter-template">
-        <h1>Tóm skel</h1>
+        <h1>Síðan mín</h1>
         <p>
-        ...
+        Hér mætti mögulega bjóða notendum að setja inn símanúmerið sitt ... <br />
+        ... hugsanlega bjóða admin að breyta um password hérna ...
         </p>
+      </div>
     </div><!-- /.container -->
 
 
