@@ -53,6 +53,28 @@ $pass = "pass";
 
 $encripted_pass = md5("$salt1$pass$salt2");
 
+echo "md5 pass:";
+echo $encripted_pass;
+echo "\n";
+
+$usr_password = hash('sha256', "$salt1$pass$salt2");
+$usr_password2 = hash('sha256', $usr_password);
+$usr_password3 = hash('sha256', $usr_password2);
+$usr_password4 = hash('sha256', $usr_password3);
+$usr_password5 = hash('sha256', $usr_password4);
+
+echo "sha pass:";
+echo "\n";
+echo $usr_password;
+echo "\n";
+echo $usr_password2;
+echo "\n";
+echo $usr_password3;
+echo "\n";
+echo $usr_password4;
+echo "\n";
+echo $usr_password5;
+
 $my_var = "0";
 
 
