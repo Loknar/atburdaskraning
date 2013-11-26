@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS 'registrations';
 CREATE TABLE 'users' (
   'user_id' integer NOT NULL,
   'name' text,
-  'post' text,
+  'post' text NOT NULL UNIQUE,
   'pass' text,
   'privileges' numeric,
   PRIMARY KEY ('user_id')
