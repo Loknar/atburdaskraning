@@ -140,7 +140,19 @@ _END;
   else {
     // registration open
     if ($user_registered_to_event) {
+      if (0 < $seats) {
+        $seats_string = "Sætafjöldi: $seats";
+      }
+      else {
+        $seats_string = "Engin fjöldatakmörkun.";
+      }
+      
       echo <<<_END
+        <p>
+        Skráningu lýkur: $registration_end_string<br/>
+        $seats_string
+        </p>
+        
         <!-- Button trigger modal -->
         <button class="btn btn-danger" data-toggle="modal" data-target="#confirmUnregister">
           Afskrá mig
