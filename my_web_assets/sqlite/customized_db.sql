@@ -13,6 +13,7 @@ CREATE TABLE 'users' (
   'post' text NOT NULL UNIQUE,
   'pass' text,
   'privileges' numeric,
+  'phone_nr' text,
   PRIMARY KEY ('user_id')
 );
 -- insert a few users into table 'users'
