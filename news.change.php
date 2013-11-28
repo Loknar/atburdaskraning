@@ -64,9 +64,11 @@ if(isset($_POST["newsTitle"]) &&
   }
   
   if($post_success) {
+    $last_editor = USER_ID;
+    $date_edited = time();
     // insert event into database
-    $insert = $db->prepare("UPDATE news SET title=:title,description=:description WHERE news_id=:news_id;");
-    $result = $insert->execute(array('title' => $newsTitle,'description' => $newsDescription,'news_id' => $news_id));
+    $insert = $db->prepare("UPDATE news SET title=:title,description=:description,date_edited=:date_edited,last_editor=:last_editor WHERE news_id=:news_id;");
+    $result = $insert->execute(array('title' => $newsTitle,'description' => $newsDescription,'news_id' => $news_id,'date_edited'=>$date_edited,'last_editor'=>$last_editor));
     if(!$result) {
       // $error = $insert->errorCode();
       die("Database error."); // þarf kannski að meðhöndla eitthvað betur

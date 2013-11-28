@@ -144,9 +144,11 @@ if(isset($_POST["eventTitle"]) &&
   }
   
   if($post_success) {
+    $date_edited = time();
+    $last_editor = USER_ID;
     // insert event into database
-    $insert = $db->prepare("UPDATE events SET title=:title,start=:start,end=:end,registration_start=:registration_start,registration_end=:registration_end,description=:description,location=:location,seats=:seats WHERE event_id=:event_id;");
-    $result = $insert->execute(array('title' => $eventTitle,'start' => $eventStarting_Unixtime,'end' => $eventEnding_Unixtime,'registration_start' => $registerStarting_Unixtime,'registration_end' => $registerEnding_Unixtime,'description' => $eventDescription,'location' => $eventLocation,'seats' => $eventSeats_int,'event_id' => $event_id));
+    $insert = $db->prepare("UPDATE events SET title=:title,start=:start,end=:end,registration_start=:registration_start,registration_end=:registration_end,description=:description,location=:location,seats=:seats,date_edited=:date_edited,last_editor=:last_editor WHERE event_id=:event_id;");
+    $result = $insert->execute(array('title' => $eventTitle,'start' => $eventStarting_Unixtime,'end' => $eventEnding_Unixtime,'registration_start' => $registerStarting_Unixtime,'registration_end' => $registerEnding_Unixtime,'description' => $eventDescription,'location' => $eventLocation,'seats' => $eventSeats_int,'event_id' => $event_id, 'date_edited'=>$date_edited,'last_editor'=>$last_editor));
     if(!$result) {
       // $error = $insert->errorCode();
       die("Database error."); // þarf kannski að meðhöndla eitthvað betur
