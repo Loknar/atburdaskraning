@@ -119,7 +119,7 @@ if($post_happened) {
         <h4>Nýjum notanda bætt við</h4>
         <p>Nýr notandi hefur verið skráður, smelltu á takkann hér fyrir neðan til að fara í lista yfir notendur</p>
         <p>
-          <a class="btn btn-default" href="#">Fara í notendalista</a>
+          <a class="btn btn-default" href="users.php">Fara í notendalista</a>
         </p>
       </div><!-- alert message -->
 _END;
