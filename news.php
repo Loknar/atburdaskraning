@@ -62,7 +62,7 @@ foreach($result as $row_data) {
 
   $changebutton = "";
   if ($user_privileges == 2 or $user_privileges == 1){
-    $changebutton = "<p><a class='btn btn-default' href='news.change.php?id=$news_id''>Breyta frétt &raquo;</a></p>";
+    $changebutton = "<p><a class='btn btn-warning' href='news.change.php?id=$news_id''>Breyta frétt &raquo;</a></p>";
   }
 
   echo <<<_END
@@ -84,6 +84,7 @@ foreach($result as $row_data) {
               <p>
               <small>Síðast breytt: $date_edited af $editor_name</small>
               </p>
+              <p><a class="btn btn-default" href="news.single.php?id=$news_id">Skoða sem staka frétt &raquo;</a></p>
               $changebutton
             </div>
           </div>

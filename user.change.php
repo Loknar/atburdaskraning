@@ -193,21 +193,37 @@ _END;
 if (USER_PRIVILEGES == 2) {
   if ($change_user_privileges == 0) {
     echo <<<_END
-          <h2>Admin stillingar</h2>
-          <form role="form" method="post" action="user.change.php?id=$change_user_id">
-            <input type="hidden" name="set_privileges" value=1 />
-            <button type="submit" class="btn btn-success">Gefa notanda moderator réttindi</button>
-          </form>
+          <div class="adminpad">
+            <h2>Admin stillingar</h2>
+            <div class="fixed_width">
+            <div class="login-or">
+            <hr class="hr-or">
+            <span class="span-or">~</span>
+            </div>
+            </div>
+            <form role="form" method="post" action="user.change.php?id=$change_user_id">
+              <input type="hidden" name="set_privileges" value=1 />
+              <button type="submit" class="btn btn-success">Gefa notanda moderator réttindi</button>
+            </form>
+          </div>
 
 _END;
   }
   elseif ($change_user_privileges == 1) {
     echo <<<_END
+        <div class="adminpad">
           <h2>Admin stillingar</h2>
+          <div class="fixed_width">
+          <div class="login-or">
+            <hr class="hr-or">
+            <span class="span-or">~</span>
+          </div>
+          </div>
           <form role="form" method="post" action="user.change.php?id=$change_user_id">
             <input type="hidden" name="set_privileges" value=0 />
             <button type="submit" class="btn btn-warning">Taka moderator réttindi af notanda</button>
           </form>
+        </div>
 
 _END;
   }

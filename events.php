@@ -68,7 +68,7 @@ foreach($result as $row_data) {
 
   $changebutton = "";
   if ($user_privileges == 2 or $user_privileges == 1){
-    $changebutton = "<p><a class='btn btn-default' href='event.change.php?id=$event_id''>Breyta viðburði &raquo;</a></p>";
+    $changebutton = "<p><a class='btn btn-warning' href='event.change.php?id=$event_id''>Breyta atburði &raquo;</a></p>";
   }
 
   
@@ -98,7 +98,8 @@ foreach($result as $row_data) {
               <p>
               Sætafjöldi: $seats
               </p>
-              <p><a class="btn btn-default" href="#">Fara í skráningarlista atburðar &raquo;</a></p>
+              <p><a class="btn btn-default" href="#">Fara í skráningarlista atburðar &raquo;</a>
+              <a class="btn btn-default" href="event.php?id=$event_id">Skoða sem stakan atburð &raquo;</a></p>
               <p><small>Skráð $date_created af $creator_name. Síðast breytt $date_edited af $editor_name. </small></p>
               $changebutton
             </div>
