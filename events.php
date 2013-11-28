@@ -98,8 +98,7 @@ foreach($result as $row_data) {
               <p>
               Sætafjöldi: $seats
               </p>
-              <p><a class="btn btn-default" href="#">Fara í skráningarlista atburðar &raquo;</a>
-              <a class="btn btn-default" href="event.php?id=$event_id">Skoða sem stakan atburð &raquo;</a></p>
+              <p><a class="btn btn-default" href="event.php?id=$event_id">Fara í skráningarlista atburðar &raquo;</a></p>
               <p><small>Skráð $date_created af $creator_name. Síðast breytt $date_edited af $editor_name. </small></p>
               $changebutton
             </div>
