@@ -50,6 +50,7 @@ CREATE TABLE 'events' (
   'date_edited' integer,
   'creator' integer,
   'last_editor' integer,
+  'open_mod_registration' integer,
   PRIMARY KEY ('event_id')
 );
 -- insert a dummy event into table 'events'
