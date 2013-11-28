@@ -38,9 +38,10 @@ require_once "parts/navbar.php";
 }*/
 
 $temp_counter = 0;
-$result = $db->query("SELECT title,start,end,registration_start,registration_end,description,location,seats FROM events ORDER BY start;");
+$result = $db->query("SELECT event_id,title,start,end,registration_start,registration_end,description,location,seats,date_created,date_edited,creator,last_editor FROM events ORDER BY start;");
 foreach($result as $row_data) {
   $temp_counter++;
+  $event_id = $row_data["event_id"];
   $title = $row_data["title"];
   $start = date("d-m-Y H:i", $row_data["start"]);
   $end = date("d-m-Y H:i", $row_data["end"]);
@@ -49,6 +50,27 @@ foreach($result as $row_data) {
   $description = nl2br($row_data["description"]);
   $location = $row_data["location"];
   $seats = $row_data["seats"];
+  $date_created = date("d-m-Y H:i",$row_data["date_created"]);
+  $date_edited = date("d-m-Y H:i",$row_data["date_edited"]);
+  $creator_id = $row_data["creator"];
+  $editor_id = $row_data["last_editor"];
+
+  $creator_statement = $db->prepare("SELECT name FROM users WHERE user_id = :user_id");
+  $creator_statement->execute(array('user_id' => $creator_id));
+  $creator_name_result = $creator_statement->fetchAll();
+  $creator_name = $creator_name_result[0]["name"];
+
+
+  $editor_statement = $db->prepare("SELECT name FROM users WHERE user_id = :user_id");
+  $editor_statement->execute(array('user_id' => $editor_id));
+  $editor_result = $editor_statement->fetchAll();
+  $editor_name = $editor_result[0]["name"];
+
+  $changebutton = "";
+  if ($user_privileges == 2 or $user_privileges == 1){
+    $changebutton = "<p><a class='btn btn-default' href='event.change.php?id=$event_id''>Breyta viðburði &raquo;</a></p>";
+  }
+
   
   echo <<<_END
 
@@ -77,6 +99,8 @@ foreach($result as $row_data) {
               Sætafjöldi: $seats
               </p>
               <p><a class="btn btn-default" href="#">Fara í skráningarlista atburðar &raquo;</a></p>
+              <p><small>Skráð $date_created af $creator_name. Síðast breytt $date_edited af $editor_name. </small></p>
+              $changebutton
             </div>
           </div>
         </div>

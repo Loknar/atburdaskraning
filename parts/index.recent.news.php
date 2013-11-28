@@ -27,7 +27,7 @@ if (0 < count($result)) {
             <div class="fretta_haldari">
               <h2>$title</h2>
               <p>$description</p>
-              <p><a class="btn btn-default" href="news.single.php?id?id=$news_id" role="button">Lesa nánar &raquo;</a></p>
+              <p><a class="btn btn-default" href="news.single.php?id=$news_id" role="button">Lesa nánar &raquo;</a></p>
             </div>
 _END;
   }

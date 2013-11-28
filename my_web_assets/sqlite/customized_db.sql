@@ -53,7 +53,7 @@ CREATE TABLE 'events' (
   PRIMARY KEY ('event_id')
 );
 -- insert a dummy event into table 'events'
-INSERT INTO 'events' ('title','start','end','registration_start','registration_end','description','location','seats') VALUES ('Haustmisserispróf',1385971200,1387296000,1385971200,1387296000,'Haustmisserispróf fara fram dagana 2. - 17. desember.','Háskóli Íslands',0);
+INSERT INTO 'events' ('title','start','end','registration_start','registration_end','description','location','seats','date_created','date_edited','creator','last_editor') VALUES ('Haustmisserispróf',1385971200,1387296000,1385971200,1387296000,'Haustmisserispróf fara fram dagana 2. - 17. desember.','Háskóli Íslands',0,1385971200,1387296000,1,1);
 
 -- Table structure for table 'registrations'
 CREATE TABLE 'registrations' (

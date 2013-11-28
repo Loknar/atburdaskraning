@@ -35,17 +35,33 @@ require_once "parts/navbar.php";
 <?php
 
 // preparing statement
-$query = $db->prepare("SELECT name,post,privileges FROM users ORDER BY name;");
+$query = $db->prepare("SELECT user_id,name,post,privileges FROM users ORDER BY name;");
 // insert variables safely into the prepared statement and execute it
 $query->execute();
 // fetch results into a results variable
 $users = $query->fetchAll();
+
+
+//Show link to user change if admin else plaintext
+if ($user_privileges == 2 or $user_privileges == 1){
+    foreach($users as $user) {
+      $user_name = $user["name"];
+      $user_id = $user["user_id"];
+      echo <<<_END
+      <p><a href='user.change.php?id=$user_id''>$user_name</a><p>
+_END;
+}
+}
+else{
 foreach($users as $user) {
   $user_name = $user["name"];
   echo <<<_END
   <p>$user_name</p>
 _END;
+} 
 }
+
+
 ?>
 
       </div>
