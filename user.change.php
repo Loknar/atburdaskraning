@@ -92,7 +92,18 @@ if(isset($_POST["name"]) &&
   }
 }
 
-
+// admin post change privileges of user
+if(isset($_POST["set_privileges"]) && USER_PRIVILEGES == 2) {
+  $new_privileges = intval(get_post("set_privileges"));
+  if ($new_privileges != 1) $new_privileges = 0;
+  
+  // preparing statement
+  $query = $db->prepare("UPDATE users SET privileges=:privileges WHERE user_id=:user_id;");
+  // insert variables safely into the prepared statement and execute it
+  $result = $query->execute(array('privileges' => $new_privileges,'user_id' => $change_user_id));
+  
+  $change_user_privileges = $new_privileges;
+}
 
 
 ?>
@@ -178,6 +189,32 @@ _END;
             </button>
           </form>
         </div>
+<?php
+if (USER_PRIVILEGES == 2) {
+  if ($change_user_privileges == 0) {
+    echo <<<_END
+          <h2>Admin stillingar</h2>
+          <form role="form" method="post" action="user.change.php?id=$change_user_id">
+            <input type="hidden" name="set_privileges" value=1 />
+            <button type="submit" class="btn btn-success">Gefa notanda moderator réttindi</button>
+          </form>
+
+_END;
+  }
+  elseif ($change_user_privileges == 1) {
+    echo <<<_END
+          <h2>Admin stillingar</h2>
+          <form role="form" method="post" action="user.change.php?id=$change_user_id">
+            <input type="hidden" name="set_privileges" value=0 />
+            <button type="submit" class="btn btn-warning">Taka moderator réttindi af notanda</button>
+          </form>
+
+_END;
+  }
+}
+
+?>
+        
       </div>
     </div><!-- /.container -->
 

@@ -9,7 +9,7 @@ $event_id = intGET("id");
 
 // check if given id is valid or not, and fetch info about the event if id is valid
 // preparing statement
-$query = $db->prepare("SELECT title,start,end,registration_start,registration_end,description,location,seats FROM events WHERE event_id = :event_id;");
+$query = $db->prepare("SELECT title,start,end,registration_start,registration_end,description,location,seats,open_mod_registration FROM events WHERE event_id = :event_id;");
 // insert variables safely into the prepared statement and execute it
 $query->execute(array('event_id' => $event_id));
 // fetch results into a results variable
@@ -30,7 +30,8 @@ $registration_end_string = date("d-m-Y H:i",$registration_end);
 $description = $row_data["description"];
 $location = $row_data["location"];
 $seats = intval($row_data["seats"]);
-
+$open_mod_registration = intval($row_data["open_mod_registration"]);
+if ($open_mod_registration != 1) $open_mod_registration = 0;
 
 // =============
 // POST handling
@@ -152,6 +153,26 @@ if(isset($_POST["eventTitle"]) &&
     }
   }
 }
+
+
+// admin post handling
+
+if(USER_PRIVILEGES == 2 && isset($_POST["open_mod_registration"])) {
+  $new_open_mod_registration = intval(get_post("open_mod_registration"));
+  if ($new_open_mod_registration != 1) $new_open_mod_registration = 0;
+  
+  // insert event into database
+  $insert = $db->prepare("UPDATE events SET open_mod_registration=:open_mod_registration WHERE event_id=:event_id;");
+  $result = $insert->execute(array('open_mod_registration' => $new_open_mod_registration, 'event_id' => $event_id));
+  if(!$result) {
+    // $error = $insert->errorCode();
+    die("Database error."); // þarf kannski að meðhöndla eitthvað betur
+  }
+  $open_mod_registration = $new_open_mod_registration;
+}
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -276,6 +297,35 @@ _END;
         
         <button type="submit" class="btn btn-default">Uppfæra atburð</button>
       </form>
+      
+<?php
+if (USER_PRIVILEGES == 2) {
+  if ($open_mod_registration) {
+    echo <<<_END
+      <div class="form-group">
+        <h2>Admin stillingar</h2>
+        <form role="form" method="post" action="event.change.php?id=$event_id">
+          <input type="hidden" name="open_mod_registration" value=0 />
+          <button type="submit" class="btn btn-warning">Loka fyrir moderator forskráningar</button>
+        </form>
+      </div>
+_END;
+  }
+  else {
+  echo <<<_END
+      <div class="form-group">
+        <h2>Admin stillingar</h2>
+        <form role="form" method="post" action="event.change.php?id=$event_id">
+          <input type="hidden" name="open_mod_registration" value=1 />
+          <button type="submit" class="btn btn-success">Opna fyrir moderator forskráningar</button>
+        </form>
+      </div>
+_END;
+  }
+}
+
+?>
+      
     
     </div><!-- /.container -->
 
