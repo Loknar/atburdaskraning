@@ -43,7 +43,7 @@ $users = $query->fetchAll();
 
 
 //Show link to user change if admin else plaintext
-if ($user_privileges == 2 or $user_privileges == 1){
+if (USER_LOGGEDIN && ($user_privileges == 2 or $user_privileges == 1)){
     foreach($users as $user) {
       $user_name = $user["name"];
       $user_id = $user["user_id"];

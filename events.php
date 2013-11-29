@@ -67,7 +67,7 @@ foreach($result as $row_data) {
   $editor_name = $editor_result[0]["name"];
 
   $changebutton = "";
-  if ($user_privileges == 2 or $user_privileges == 1){
+  if (USER_LOGGEDIN && ($user_privileges == 2 or $user_privileges == 1)){
     $changebutton = "<p><a class='btn btn-warning' href='event.change.php?id=$event_id''>Breyta atburði &raquo;</a></p>";
   }
 
