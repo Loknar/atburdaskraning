@@ -44,11 +44,11 @@ require_once "parts/navbar.php";
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
           <div class="list-group">
-          <li class="list-group-item active">Næstu atburðir</li>
+          <div class="list-group-item active">Næstu atburðir</div>
 <?php require_once "parts/index.sidebar.events.php"; ?>
           </div>
         </div><!--/span-->
-
+      </div>
     </div><!-- /.container -->
 
 

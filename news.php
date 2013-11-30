@@ -29,7 +29,6 @@ require_once "parts/navbar.php";
 ?>
 
     <div class="container">
-
       <div class="starter-template">
  <?php
 /*if (!isset($to_be_or_not_to_be)) {
@@ -90,6 +89,8 @@ foreach($result as $row_data) {
           </div>
         </div>
       </div>
+      </div>
+
 _END;
 }
 ?>
