@@ -9,6 +9,7 @@ Hugsað sem lausn fyrir smærri nemendafélög innan Háskóla Íslands, til að
 Uppsetning
 ----------
 Til stendur að setja saman BASH skrá til að gera uppsetningu síðunnar sem auðveldasta, þá á að vera hægt að keyra viðkomandi skrá á heimasvæði þess aðila sem ætlar að setja síðuna upp á heimasvæði sínu.
+
 COMING SOON(ish):
 < Uppsetningarupplýsingar >
 
