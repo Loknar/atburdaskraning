@@ -1,6 +1,6 @@
 <?php
 // for sessions to work on notendur.hi.is we need to set a custom session save folder, abd chmod -R 0777 [foldername] that folder
-$sessions_placement = "/heima/".HOST_USER."/.my_web_assets/sessions";
+$sessions_placement = "/heima/".HOST_USER."/my_web_assets/sessions";
 if(!$development) {
   ini_set("session.save_path",$sessions_placement); // needed on notendur.hi.is
 }
