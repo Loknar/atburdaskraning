@@ -16,11 +16,8 @@ CREATE TABLE 'users' (
   'phone_nr' text,
   PRIMARY KEY ('user_id')
 );
--- insert a few users into table 'users'
+-- insert admin user into table 'users'
 INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Administrator','admin','fe9aa4b6a65c09610db921d85af5eb4466779359c2a744985b1e3e8e9a1c32d1',2);
-INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Sveinn Flóki Guðmundsson','sfg6','fe9aa4b6a65c09610db921d85af5eb4466779359c2a744985b1e3e8e9a1c32d1',1);
-INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Tómas Páll Máté','tpm1','fe9aa4b6a65c09610db921d85af5eb4466779359c2a744985b1e3e8e9a1c32d1',1);
-INSERT INTO 'users' ('name','post','pass','privileges') VALUES ('Guðmundur Már Gunnarsson','gmg13','fe9aa4b6a65c09610db921d85af5eb4466779359c2a744985b1e3e8e9a1c32d1',0);
 
 -- Table structure for table 'news'
 CREATE TABLE 'news' (
