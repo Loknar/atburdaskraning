@@ -17,8 +17,13 @@ require_once "php/db_login.php";
 require_once "php/utils.php";
 
 // domain constant defined
-//define("THIS_DOMAIN", "https://notendur.hi.is/~".HOST_USER."/$website_subfolder"); // on notendur.hi.is
-define("THIS_DOMAIN", "http://localhost:8888/vefforritun/atburdaskraning/"); // on localhost
+if($development) {
+  define("THIS_DOMAIN", "http://localhost:8888/vefforritun/atburdaskraning/"); // on localhost
+}
+else {
+  define("THIS_DOMAIN", "https://notendur.hi.is/~".HOST_USER."/$website_subfolder"); // on notendur.hi.is
+}
+
 
 // creating salt variables for hashing
 $salt1 = "v@ult";
