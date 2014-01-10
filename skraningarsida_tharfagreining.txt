@@ -13,7 +13,7 @@ Venjulegur notandi getur:
 - loggað sig út - logout.php
 - séð skráningarlista - event.php?id=1
 - skráð/afskráð sig í atburð á skráningartíma - event.php
-- geta breytt lykilorði sínu - mysite.php
+- geta breytt lykilorði sínu - mysite.php // þessu var sleppt þar sem uglan var að lokum notuð fyrir innskráningar, þarf að vísu að útfæra þetta svo hægt sé að breyta lykilorði á admin
 
 Moderator getur:
 - sett inn nýjar fréttir - news.add.php
@@ -38,8 +38,7 @@ Admin getur:
 
 
 
-
-// listi yfir skrár sem þarf að gera
+// listi yfir skrár
 index.php
 news.php
 events.php
@@ -54,3 +53,10 @@ event.add.php *
 event.change.php
 user.add.php
 user.change.php
+
+// *****************************************
+// hlutir sem hafa þarf í huga í uppsetningu
+- þarf að setja skrifréttindi á my_web_assets möppuna með því að keyra eftirfarandi skipun á kötlu:
+  chmod 777 /my_web_assets -R
+- ekki setja my_web_assets möppuna í .public_html möppunni, setja hana bara efst (eins og .public_html mappan er)
+- muna að yfirfara og breyta gildunum í /php/config.php
