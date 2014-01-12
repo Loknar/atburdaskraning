@@ -19,6 +19,6 @@ Notendur þurfa að hafa aðgang að uglunni þar sem hún er notuð til að sta
 
 Tól notuð
 ---------
-Bakendi síðunnar er skrifaður í php og útlit síðunnar er að mestu fengið frá <a href="http://getbootstrap.com/">Bootstrap 3.0</a>.
+Bakendi síðunnar er skrifaður í php og útlit er að mestu fengið frá <a href="http://getbootstrap.com/">Bootstrap 3.0</a>.
 Notast er við skemmtilegt dagatal til að velja dagsetningar, sjá <a href="https://github.com/Eonasdan/bootstrap-datetimepicker">datetimepicker</a>.
-Notaður er SQLite sem gagnagrunnur.
+Notast er við SQLite gagnagrunn.
