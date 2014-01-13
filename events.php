@@ -38,7 +38,7 @@ require_once "parts/navbar.php";
 }*/
 
 $temp_counter = 0;
-$result = $db->query("SELECT event_id,title,start,end,registration_start,registration_end,description,location,seats,date_created,date_edited,creator,last_editor FROM events ORDER BY start;");
+$result = $db->query("SELECT event_id,title,start,end,registration_start,registration_end,description,location,seats,date_created,date_edited,creator,last_editor FROM events ORDER BY start DESC;");
 foreach($result as $row_data) {
   $temp_counter++;
   $event_id = $row_data["event_id"];
@@ -54,7 +54,7 @@ foreach($result as $row_data) {
   $date_edited = date("d-m-Y H:i",$row_data["date_edited"]);
   $creator_id = $row_data["creator"];
   $editor_id = $row_data["last_editor"];
-
+  
   $creator_statement = $db->prepare("SELECT name FROM users WHERE user_id = :user_id");
   $creator_statement->execute(array('user_id' => $creator_id));
   $creator_name_result = $creator_statement->fetchAll();
@@ -64,7 +64,13 @@ foreach($result as $row_data) {
   $editor_statement = $db->prepare("SELECT name FROM users WHERE user_id = :user_id");
   $editor_statement->execute(array('user_id' => $editor_id));
   $editor_result = $editor_statement->fetchAll();
-  $editor_name = $editor_result[0]["name"];
+  if (isset($editor_result[0]["name"])) {
+    $editor_name = $editor_result[0]["name"];
+    $edited = "Síðast breytt $date_edited af $editor_name.";
+  }
+  else {
+    $edited = "";
+  }
 
   $changebutton = "";
   if (USER_LOGGEDIN && ($user_privileges == 2 or $user_privileges == 1)){
@@ -99,7 +105,7 @@ foreach($result as $row_data) {
               Sætafjöldi: $seats
               </p>
               <p><a class="btn btn-default" href="event.php?id=$event_id">Fara í skráningarlista atburðar &raquo;</a></p>
-              <p><small>Skráð $date_created af $creator_name. Síðast breytt $date_edited af $editor_name. </small></p>
+              <p><small>Skráð $date_created af $creator_name. $edited </small></p>
               $changebutton
             </div>
           </div>
