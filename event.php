@@ -193,40 +193,6 @@ _END;
 _END;
     }
     
-    // now we want to fetch users that have registered to this event
-
-    // preparing statement
-    $query = $db->prepare("SELECT name,user_id,timing FROM users NATURAL JOIN registrations WHERE event_id=:event_id ORDER BY timing;");
-    // insert variables safely into the prepared statement and execute it
-    $query->execute(array('event_id' => $event_id));
-    // fetch results into a results variable
-    $result = $query->fetchAll();
-    //var_dump($result);
-
-    echo <<<_END
-          <div class="fixed_width">
-          <ol>
-_END;
-
-    $nr = 0;
-    foreach($result as $row_data) {
-      $name = $row_data["name"];
-
-      $nr++;
-      $listyle = "";
-      if ($seats > 0 && $seats - $nr < 0) {
-        $listyle = " style=\"color: #BBB;\" ";
-      }
-      echo <<<_END
-          <li$listyle>$name</li>
-_END;
-    }
-
-    echo <<<_END
-          </ol>
-          </div>
-_END;
-    
   }
   // different things shown based on whether registartion is not yet started, started or over
   
@@ -275,7 +241,12 @@ _END;
 _END;
     }
     
-    // now we want to fetch users that have registered to this event
+  }
+  
+  
+  // show registry list, but only for moderators and admin if registartion is not yet started
+  if ($now >= $registration_start || USER_PRIVILEGES == 1 || USER_PRIVILEGES == 2) {
+    // fetch users that have registered to this event
 
     // preparing statement
     $query = $db->prepare("SELECT name,user_id,timing FROM users NATURAL JOIN registrations WHERE event_id=:event_id ORDER BY timing;");
@@ -308,10 +279,8 @@ _END;
           </ol>
           </div>
 _END;
-    
-    
-    
   }
+  
   
 }
 else {
