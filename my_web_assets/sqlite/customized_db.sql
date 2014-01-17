@@ -12,7 +12,7 @@ CREATE TABLE 'users' (
   'name' text,
   'post' text NOT NULL UNIQUE,
   'pass' text,
-  'privileges' numeric,
+  'privileges' integer,
   'phone_nr' text,
   PRIMARY KEY ('user_id')
 );
@@ -59,7 +59,7 @@ CREATE TABLE 'registrations' (
   'registration_id' integer NOT NULL,
   'user_id' integer,
   'event_id' integer,
-  'timing' numeric,
+  'timing' integer,
   PRIMARY KEY ('registration_id')
 );
 -- register the admin user to the dummy event
