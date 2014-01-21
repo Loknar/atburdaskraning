@@ -126,8 +126,8 @@ if(isset($_POST["newsTitle"]) &&
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="News Add">
-    <meta name="author" content="Sveinn Flóki Guðmundsson">
+    <meta name="description" content="<?php echo $website_content; ?>">
+    <meta name="author" content="Sveinn Flóki Guðmundsson, Tómas Páll Máté">
     <link rel="shortcut icon" href="ico/favicon.ico">
 
     <title><?php echo $website_title; ?></title>
