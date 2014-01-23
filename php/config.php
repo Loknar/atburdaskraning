@@ -10,7 +10,7 @@ define("HOST_USER", "uglu notandanafn hér");
 // Hér má breyta nokkrum hlutum varðandi síðuna
 $website_title = "Titill síðu";
 $website_name = "Nafn síðu";
-$website_content = "Örstutt lýsing á hlutverki, efni og innihaldi síðu."
+$website_content = "Örstutt lýsing á hlutverki, efni og innihaldi síðu.";
 
 // ef síðan er sett í undirmöppu í .public_html möppunni þá þarf að setja það inn hér, annars hafa tómt (þ.e. setja sem "")
 $website_subfolder = "viso/";
