@@ -22,3 +22,7 @@ Tól notuð
 Bakendi síðunnar er skrifaður í php og útlit er að mestu fengið frá <a href="http://getbootstrap.com/">Bootstrap 3.0</a>.
 Notast er við skemmtilegt dagatal til að velja dagsetningar, sjá <a href="https://github.com/Eonasdan/bootstrap-datetimepicker">datetimepicker</a>.
 Notast er við SQLite gagnagrunn.
+
+Demo síða
+---------
+Sjá demo síðuna [Vísó](https://notendur.hi.is/~sfg6/viso/).
