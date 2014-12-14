@@ -38,68 +38,14 @@ if(isset($_POST["newsTitle"]) &&
   }
   else {
     $post_success = false;
-    $post_error .= "<li>Titill atburðar má ekki vera tómur strengur.</li>\n";
+    $post_error .= "<li>Titill fréttar má ekki vera tómur strengur.</li>\n";
   }
-  /*
-  // check validity of datetimes
-  if(validateDatetime($date_created)) {
-    $date_created_Unixtime = strtotime($date_created);
-  }
-  else {
-    $post_success = false;
-    $post_error .= "<li>Formvilla á inntaki fyrir upphaf atburðar.</li>\n";
-    $date_created = "";
-  }
-  if(validateDatetime($eventEnding)) {
-    $eventEnding_Unixtime = strtotime($eventEnding);
-  }
-  else {
-    $post_success = false;
-    $post_error .= "<li>Formvilla á inntaki fyrir endi atburðar.</li>\n";
-    $eventEnding = "";
-  }
-  if(validateDatetime($registerStarting)) {
-    $registerStarting_Unixtime = strtotime($registerStarting);
-  }
-  else {
-    $post_success = false;
-    $post_error .= "<li>Formvilla á inntaki fyrir upphaf skráningar.</li>\n";
-    $registerStarting = "";
-  }
-  if(validateDatetime($registerEnding)) {
-    $registerEnding_Unixtime = strtotime($registerEnding);
-  }
-  else {
-    $post_success = false;
-    $post_error .= "<li>Formvilla á inntaki fyrir endi skráningar.</li>\n";
-    $registerEnding = "";
-  }*/
   
   // event description should not be empty string
   if(strlen($newsDescription) == 0) {
     $post_success = false;
-    $post_error .= "<li>Lýsing atburðar má ekki vera tómur strengur.</li>\n";
+    $post_error .= "<li>Lýsing fréttar má ekki vera tómur strengur.</li>\n";
   }
-  /*
-  // event location should not be empty string
-  if(strlen($eventLocation) > 0) {
-    // max length of event location is 200 characters
-    $eventLocation = truncateString($eventLocation, 200);
-  }
-  else {
-    $post_success = false;
-    $post_error .= "<li>Staðsetning atburðar má ekki vera tómur strengur.</li>\n";
-  }
-  
-  // event seats should be an integer and not an empty string
-  if(holds_int($eventSeats)) {
-    // max length of event location is 200 characters
-    $eventSeats_int = (int) $eventSeats;
-  }
-  else {
-    $post_success = false;
-    $post_error .= "<li>Fjöldi lausra sæta þarf að vera tala, ef það er engin fjöldatakmörkun skal setja fjölda sæta sem 0.</li>\n";
-  }*/
   
   if($post_success) {
     // insert event into database

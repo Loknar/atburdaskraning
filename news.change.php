@@ -54,13 +54,13 @@ if(isset($_POST["newsTitle"]) &&
   }
   else {
     $post_success = false;
-    $post_error .= "<li>Titill atburðar má ekki vera tómur strengur.</li>\n";
+    $post_error .= "<li>Titill fréttar má ekki vera tómur strengur.</li>\n";
   }
   
   // event description should not be empty string
   if(strlen($newsDescription) == 0) {
     $post_success = false;
-    $post_error .= "<li>Lýsing atburðar má ekki vera tómur strengur.</li>\n";
+    $post_error .= "<li>Lýsing fréttar má ekki vera tómur strengur.</li>\n";
   }
   
   if($post_success) {
