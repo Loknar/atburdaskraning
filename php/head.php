@@ -1,5 +1,9 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
+
+// load config file
+require_once "php/config.php";
+
 if ($development) {
   error_reporting(E_ALL);
   ini_set("display_errors", 1);
@@ -8,9 +12,6 @@ if ($development) {
 
 // set wanted time zone
 date_default_timezone_set("Atlantic/Reykjavik");
-
-// load config file
-require_once "php/config.php";
 
 // sqlite database login
 require_once "php/db_login.php";
