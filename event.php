@@ -167,7 +167,7 @@ _END;
                 <h4 class="modal-title" id="myModalLabel">Staðfesta afskráningu</h4>
               </div>
               <div class="modal-body">
-                Þú ert við það að afskrá þig af viðkomandi atburði, þessa aðgerð er ekki hægt að draga til baka.
+                Þú ert við það að afskrá þig af viðkomandi viðburði, þessa aðgerð er ekki hægt að draga til baka.
                 Ertu viss um að þú viljir afskrá þig?
               </div>
               <div class="modal-footer">
@@ -215,7 +215,7 @@ _END;
                 <h4 class="modal-title" id="myModalLabel">Staðfesta afskráningu</h4>
               </div>
               <div class="modal-body">
-                Þú ert við það að afskrá þig af viðkomandi atburði, þessa aðgerð er ekki hægt að draga til baka.
+                Þú ert við það að afskrá þig af viðkomandi viðburði, þessa aðgerð er ekki hægt að draga til baka.
                 Ertu viss um að þú viljir afskrá þig?
               </div>
               <div class="modal-footer">
@@ -285,7 +285,7 @@ _END;
 }
 else {
   echo <<<_END
-        <p>Atburður fannst ekki :(</p>
+        <p>Viðburður fannst ekki :(</p>
 
 _END;
 }

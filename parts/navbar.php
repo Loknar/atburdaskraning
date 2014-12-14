@@ -37,7 +37,7 @@ echo <<<_END
               <ul class="nav navbar-nav">
                 <li$index_active><a href="index.php">Forsíða</a></li>
                 <li$news_active><a href="news.php">Fréttir</a></li>
-                <li$events_active><a href="events.php">Atburðir</a></li>
+                <li$events_active><a href="events.php">Viðburðir</a></li>
                 <li$users_active><a href="users.php">Félagar</a></li>
               </ul>
 _END;
@@ -57,7 +57,7 @@ _END;
   if (USER_PRIVILEGES == 1 || USER_PRIVILEGES == 2) { // moderator or admin
     echo <<<_END
                     <li><a href="news.add.php">Skrá nýja frétt</a></li>
-                    <li><a href="event.add.php">Skrá nýjan atburð</a></li>
+                    <li><a href="event.add.php">Skrá nýjan viðburð</a></li>
                     <li><a href="user.add.php">Bæta við notanda</a></li>
 
 _END;

@@ -34,7 +34,7 @@ require_once "parts/navbar.php";
       <div class="row row-offcanvas row-offcanvas-right">
         <div class="col-xs-12 col-sm-9">
           <p class="pull-right visible-xs">
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Næstu atburðir</button>
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Næstu viðburðir</button>
           </p>
           
           <div class="row">
@@ -44,7 +44,7 @@ require_once "parts/navbar.php";
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
           <div class="list-group">
-          <div class="list-group-item active">Næstu atburðir</div>
+          <div class="list-group-item active">Næstu viðburðir</div>
 <?php require_once "parts/index.sidebar.events.php"; ?>
           </div>
         </div><!--/span-->

@@ -43,7 +43,7 @@ foreach($result as $row_data) {
               <p>
               Sætafjöldi: $seats
               </p>
-              <p><a class="btn btn-default" href="#">Fara í skráningarlista atburðar &raquo;</a></p>
+              <p><a class="btn btn-default" href="#">Fara í skráningarlista viðburðar &raquo;</a></p>
             </div>
           </div>
         </div>

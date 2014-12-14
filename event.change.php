@@ -80,7 +80,7 @@ if(isset($_POST["eventTitle"]) &&
   }
   else {
     $post_success = false;
-    $post_error .= "<li>Titill atburðar má ekki vera tómur strengur.</li>\n";
+    $post_error .= "<li>Titill viðburðar má ekki vera tómur strengur.</li>\n";
   }
   
   // check validity of datetimes
@@ -89,7 +89,7 @@ if(isset($_POST["eventTitle"]) &&
   }
   else {
     $post_success = false;
-    $post_error .= "<li>Formvilla á inntaki fyrir upphaf atburðar.</li>\n";
+    $post_error .= "<li>Formvilla á inntaki fyrir upphaf viðburðar.</li>\n";
     $eventStarting = "";
   }
   if(validateDatetime($eventEnding)) {
@@ -97,7 +97,7 @@ if(isset($_POST["eventTitle"]) &&
   }
   else {
     $post_success = false;
-    $post_error .= "<li>Formvilla á inntaki fyrir endi atburðar.</li>\n";
+    $post_error .= "<li>Formvilla á inntaki fyrir endi viðburðar.</li>\n";
     $eventEnding = "";
   }
   if(validateDatetime($registerStarting)) {
@@ -120,7 +120,7 @@ if(isset($_POST["eventTitle"]) &&
   // event description should not be empty string
   if(strlen($eventDescription) == 0) {
     $post_success = false;
-    $post_error .= "<li>Lýsing atburðar má ekki vera tómur strengur.</li>\n";
+    $post_error .= "<li>Lýsing viðburðar má ekki vera tómur strengur.</li>\n";
   }
   
   // event location should not be empty string
@@ -130,7 +130,7 @@ if(isset($_POST["eventTitle"]) &&
   }
   else {
     $post_success = false;
-    $post_error .= "<li>Staðsetning atburðar má ekki vera tómur strengur.</li>\n";
+    $post_error .= "<li>Staðsetning viðburðar má ekki vera tómur strengur.</li>\n";
   }
   
   // event seats should be an integer and not an empty string
@@ -205,7 +205,7 @@ require_once "parts/navbar.php";
 
     <div class="container">
       
-      <h1>Breyta skráðum atburði</h1>
+      <h1>Breyta skráðum viðburði</h1>
       
 <?php
 
@@ -214,8 +214,8 @@ if($post_happened) {
     echo <<<_END
       <div class="alert alert-block alert-success fade in">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h4>Atburði breytt</h4>
-        <p>Atburðurinn hefur verið uppfærður.</p>
+        <h4>Viðburði breytt</h4>
+        <p>Viðburðurinn hefur verið uppfærður.</p>
       </div><!-- alert message -->
 _END;
   }
@@ -238,13 +238,13 @@ _END;
 
       <form role="form" method="post" action="event.change.php?id=<?php echo $event_id; ?>">
         <div class="form-group">
-          <label for="eventTitle">Titill atburðar</label>
+          <label for="eventTitle">Titill viðburðar</label>
           <input class="form-control" id="eventTitle" name="eventTitle" placeholder="Titill" value="<?php echo $eventTitle; ?>">
         </div>
         
         <div class="row">
           <div class="form-group col-md-6">
-            <label for="eventStarting">Atburður hefst</label>
+            <label for="eventStarting">Viðburður hefst</label>
             <div class='input-group date' id='datetimepicker1'>
               <input id="eventStarting" name="eventStarting" type='text' class="form-control" data-format="dd-MM-yyyy" placeholder="dd-mm-áááá kk:mm" value="<?php echo $eventStarting; ?>" />
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
@@ -252,7 +252,7 @@ _END;
             </div>
           </div>
           <div class="form-group col-md-6">
-            <label for="eventEnding">Atburður endar</label>
+            <label for="eventEnding">Viðburður endar</label>
             <div class='input-group date' id='datetimepicker2'>
               <input id="eventEnding" name="eventEnding" type='text' class="form-control" data-format="dd-MM-yyyy" placeholder="dd-mm-áááá kk:mm" value="<?php echo $eventEnding; ?>" />
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
@@ -281,12 +281,12 @@ _END;
         </div>
         
         <div class="form-group">
-          <label for="eventDescription">Lýsing atburðar</label>
+          <label for="eventDescription">Lýsing viðburðar</label>
           <textarea id="eventDescription" name="eventDescription" class="form-control" rows="4" placeholder="Lýsing ..."><?php echo $eventDescription; ?></textarea>
         </div>
         
         <div class="form-group">
-          <label for="eventLocation">Staðsetning atburðar</label>
+          <label for="eventLocation">Staðsetning viðburðar</label>
           <input class="form-control" id="eventLocation" name="eventLocation" placeholder="Staðsetning" value="<?php echo $eventLocation; ?>">
         </div>
         
@@ -297,7 +297,7 @@ _END;
           </div>
         </div>
         
-        <button type="submit" class="btn btn-default">Uppfæra atburð</button>
+        <button type="submit" class="btn btn-default">Uppfæra viðburð</button>
       </form>
       
 <?php

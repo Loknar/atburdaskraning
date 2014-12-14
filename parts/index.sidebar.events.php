@@ -30,7 +30,7 @@ if (0 < count($result)) {
               <a href="event.php?id=$event_id" class="list-group-item">
                 <p>$title</p>
                 <p class="text-muted">
-                  Atburður hefst: $start <br />
+                  Viðburður hefst: $start <br />
                   Skráning hefst: $registration_start
                 </p>
               </a>
