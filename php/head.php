@@ -1,8 +1,10 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
+if ($development) {
+  error_reporting(E_ALL);
+  ini_set("display_errors", 1);
+  ini_set("display_startup_errors", 1);
+}
 
 // set wanted time zone
 date_default_timezone_set("Atlantic/Reykjavik");
@@ -25,7 +27,7 @@ else {
 }
 
 
-// creating salt variables for hashing
+// salt variables for hashing
 $salt1 = "v@ult";
 $salt2 = "pod!";
 
