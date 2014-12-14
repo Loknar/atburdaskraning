@@ -11,8 +11,8 @@ function destroySession() {
 }
 
 // redirects client to website root, must be called before anything else is printed to work
-function redirectToRoot() {
-  header("Location: ".THIS_DOMAIN);
+function redirectToRoot($url = "") {
+  header("Location: ".THIS_DOMAIN.$url);
   exit();
 }
 
