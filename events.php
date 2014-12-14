@@ -1,6 +1,28 @@
 <?php
 require_once "php/head.php";
 
+// admin delete event handling
+$delete_success_message = false;
+if(USER_PRIVILEGES == 2 && isset($_POST["delete_event"])) {
+  $delete_event_id = intval(get_post("delete_event"));
+  // remove event from database
+  $delete = $db->prepare("DELETE FROM events WHERE event_id=:event_id;");
+  $result = $delete->execute(array('event_id' => $delete_event_id));
+  if(!$result) {
+    // $error = $insert->errorCode();
+    die("Database error."); // þarf kannski að meðhöndla eitthvað betur
+  }
+  $delete = $db->prepare("DELETE FROM registrations WHERE event_id=:event_id;");
+  $result = $delete->execute(array('event_id' => $delete_event_id));
+  if(!$result) {
+    // $error = $insert->errorCode();
+    die("Database error."); // þarf kannski að meðhöndla eitthvað betur
+  }
+
+  // show confirmation message that the deletion was successful
+  $delete_success_message = true;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="is">
@@ -36,6 +58,16 @@ require_once "parts/navbar.php";
   // not to be
   exit();
 }*/
+
+if($delete_success_message) {
+  echo <<<_END
+      <div class="alert alert-block alert-success fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4>Viðburði eytt</h4>
+        <p>Viðburðuri og skráningargögnum á þann viðburð hefur verið eytt.</p>
+      </div><!-- alert message -->
+_END;
+}
 
 $temp_counter = 0;
 $result = $db->query("SELECT event_id,title,start,end,registration_start,registration_end,description,location,seats,date_created,date_edited,creator,last_editor FROM events ORDER BY start DESC;");
@@ -75,6 +107,14 @@ foreach($result as $row_data) {
   $changebutton = "";
   if (USER_LOGGEDIN && ($user_privileges == 2 or $user_privileges == 1)){
     $changebutton = "<p><a class='btn btn-warning' href='event.change.php?id=$event_id''>Breyta viðburði &raquo;</a></p>";
+    if ($user_privileges == 2) {
+      $changebutton .= <<<_END
+      <form role="form" method="post" action="events.php">
+        <input type="hidden" name="delete_event" value=$event_id />
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Þú ert að fara að eyða viðburðinum, þessi aðgerð er óafturkallanleg! Ertu viss um að þú viljir halda áfram?')">Eyða viðburði</button>
+      </form>
+_END;
+    }
   }
 
   
