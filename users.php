@@ -55,9 +55,12 @@ _END;
 else{
 foreach($users as $user) {
   $user_name = $user["name"];
+  $user_id = $user["user_id"];
+  if ($user_id != 1) {
   echo <<<_END
   <p>$user_name</p>
 _END;
+  }
 } 
 }
 
